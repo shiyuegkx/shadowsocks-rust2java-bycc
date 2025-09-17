@@ -1,0 +1,13 @@
+# Shadowsocks Server Configuration
+# Maps to shadowsocks-rust config format
+
+# Server bind address (0.0.0.0 for all interfaces)
+server: "0.0.0.0"
+server_port: 8388
+
+# Encryption settings (must match client)
+password: "your-secure-password"
+method: "aes-256-gcm"  # or "aes-128-gcm", "chacha20-ietf-poly1305"
+
+# Connection timeout in seconds
+timeout: 300

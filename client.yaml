@@ -1,0 +1,17 @@
+# Shadowsocks Client Configuration
+# Maps to shadowsocks-rust config format
+
+# Remote shadowsocks server
+server: "your-server-address.com"
+server_port: 8388
+
+# Local proxy settings
+local_address: "127.0.0.1"
+local_port: 8080  # HTTP proxy port (SOCKS5 always on 1080)
+
+# Encryption settings
+password: "your-secure-password"
+method: "aes-256-gcm"  # or "aes-128-gcm", "chacha20-ietf-poly1305"
+
+# Connection timeout in seconds
+timeout: 300
