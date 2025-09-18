@@ -63,9 +63,11 @@ public class HttpProxyHandler extends SimpleChannelInboundHandler<HttpObject> {
         isConnect = true;
 
         // Send 200 Connection Established
-        String response = "HTTP/1.1 200 Connection Established\r\n\r\n";
-        ByteBuf responseBuf = Unpooled.copiedBuffer(response, StandardCharsets.UTF_8);
-        ctx.writeAndFlush(responseBuf).addListener((ChannelFutureListener) future -> {
+        HttpResponseStatus responseStatus = new HttpResponseStatus(200, "Connection established");
+        DefaultFullHttpResponse defaultFullHttpResponse = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, responseStatus);
+//        String response = "HTTP/1.1 200 Connection Established\r\n\r\n";
+//        ByteBuf responseBuf = Unpooled.copiedBuffer(response, StandardCharsets.UTF_8);
+        ctx.writeAndFlush(defaultFullHttpResponse).addListener((ChannelFutureListener) future -> {
             if (future.isSuccess()) {
                 // Remove HTTP codec and add relay handler
                 ctx.pipeline().remove(HttpServerCodec.class);

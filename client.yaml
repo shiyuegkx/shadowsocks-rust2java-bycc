@@ -2,7 +2,7 @@
 # Maps to shadowsocks-rust config format
 
 # Remote shadowsocks server
-server: "your-server-address.com"
+server: "127.0.0.1"
 server_port: 8388
 
 # Local proxy settings
